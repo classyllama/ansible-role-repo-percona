@@ -20,3 +20,9 @@
     key: /etc/pki/rpm-gpg/RPM-GPG-KEY-Percona
     state: present
   when: not percona_repofile_result.stat.exists
+
+- name: Import Percona Packaging key
+  rpm_key:
+    key: /etc/pki/rpm-gpg/PERCONA-PACKAGING-KEY
+    state: present
+  when: not percona_repofile_result.stat.exists
